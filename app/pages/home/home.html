@@ -1,0 +1,25 @@
+<ion-navbar *navbar>
+    <ion-title>
+        Foursquare
+    </ion-title>
+</ion-navbar>
+
+<ion-content class="home">
+    <ion-list inset>
+        <ion-item>
+            <ion-label>Search text</ion-label>
+            <ion-input [(ngModel)]="search" type="text"></ion-input>
+        </ion-item>
+    </ion-list>
+    <div padding>
+        <button block (click)="getObj()">Search</button>
+    </div>
+    <ion-card *ngFor="let obj of foundObj" (click)="goToDetails(obj)">
+        <ion-card-header>
+            {{ obj.id }}
+        </ion-card-header>
+        <ion-card-content>
+            {{ obj.name }}
+        </ion-card-content>
+    </ion-card>
+</ion-content>
