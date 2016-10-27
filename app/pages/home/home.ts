@@ -9,20 +9,20 @@ import {Category} from '../../domains/category';
   providers: [FoursquareService,Category]
 })
 export class HomePage{
-  public foundObj;
+  public foursquare;
   public category;
   public search;
 
-  constructor(private foursquare: FoursquareService,
+  constructor(private foursquares: FoursquareService,
     private nav: NavController) {
   }
 
   getObj() {
-    this.foursquare.getObj(this.search).subscribe(
+    this.foursquares.getObj(this.search).subscribe(
       data => {
         this.category = new Category();
         this.category.parse(data.json().response.groups[0]);
-        this.foundObj = this.category.foursquares;
+        this.foursquare = this.category.foursquares;
       },
       err => console.error(err),
       () => console.log('getObj completed')
