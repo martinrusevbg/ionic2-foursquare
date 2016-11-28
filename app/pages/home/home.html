@@ -14,7 +14,7 @@
     <div padding>
         <button block (click)="getObj()">Search</button>
     </div>
-    <ion-card *ngFor="let obj of foundObj" (click)="goToDetails(obj)">
+    <ion-card *ngFor="let obj of foursquare" (click)="goToDetails(obj)">
         <ion-card-header>
             {{ obj.id }}
         </ion-card-header>
